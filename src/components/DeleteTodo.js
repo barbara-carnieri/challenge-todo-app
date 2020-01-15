@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import EditTodo from './EditTodo';
 
 
 class DeleteTodo extends Component {
@@ -29,7 +30,7 @@ class DeleteTodo extends Component {
 
     axios
     .delete(`http://localhost:4000/api/v1/todos/${id}`)
-    .then( () => this.props.history.push('/')) // causes Router URL change
+    .then( () => this.props.history.push('/todos')) // causes Router URL change
     .catch( (err) => console.log(err));
   }
   
@@ -37,13 +38,14 @@ class DeleteTodo extends Component {
   render() {
     return (
       <div>
-        <h3>TASK DETAILS</h3>
+        <h3>TODO DETAILS</h3>
         <h2>{this.state.title}</h2>
         <p>{this.state.body}</p>
 
+        <EditTodo getTheTodo={this.getSingleTodo} {...this.props}/>
 
-        <button onClick={() => this.deleteTask()}>
-    	Delete task
+        <button onClick={() => this.deleteTodo()}>
+    	Delete
       	</button>
 
         

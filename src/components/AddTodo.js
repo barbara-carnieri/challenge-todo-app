@@ -16,15 +16,15 @@ class AddTodo extends Component {
   event.preventDefault();
   
     const { title, body } = this.state;
-  // we need to know to which project the task belongs, therefore we get its 'id'
+  
                                               
   axios
   .post("http://localhost:4000/api/v1/todos",{ title, body })
-  .then( () => {
-      this.setState({title: '', body: ''});
+  .then(() => {
+    this.props.getData();
+    this.setState({ title: '', body: '' });
   })
   .catch( error => console.log(error) )
-  
   }
   
   

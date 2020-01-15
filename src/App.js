@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import TodosList from './components/TodosList'
+import TodosList from './components/TodosList';
 import DeleteTodo from "./components/DeleteTodo";
-import AddTodo from './components/AddTodo'
+// import AddTodo from './components/AddTodo';
+import EditTodo from './components/EditTodo';
 import Navbar from './components/Navbar'
 
 
@@ -16,6 +17,7 @@ function App() {
       <Switch>
         {/* <Route exact path="/todos" component={AddTodo} /> */}
         <Route exact path="/todos/:id" component={DeleteTodo} />
+        <Route exact path="/todos/:id" component={EditTodo} />
         <Route exact path="/todos" component={TodosList} /> 
       </Switch>
       </BrowserRouter>
